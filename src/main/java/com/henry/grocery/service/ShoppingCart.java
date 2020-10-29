@@ -113,18 +113,20 @@ public class ShoppingCart {
 			float totalPrice = 0.0f;
 			for (Map.Entry<Product, Integer> entry : content.entrySet()) {
 				Product p1 = entry.getKey();
+
 				if (p1.getId() == pr.getDiscountId()) {
 					int qty = content.get(p1);
 					int result = qty / pr.getEligibleCount();
 					if (content.get(p) <= result) {
 						totalPrice = content.get(p) * (pr.getPrice() * p.getPrice());
 					} else {
+						
 						totalPrice = result * (pr.getPrice() * p.getPrice());
 						totalPrice += (content.get(p) - result) * p.getPrice();
 
 					}
 					return totalPrice;
-				} else {
+				} else if(pr.getEligibleCount() ==0)  {
 					totalPrice = ((p.getPrice() * content.get(p) ) - (pr.getPrice() * content.get(p) ));
 					return totalPrice;
 				}

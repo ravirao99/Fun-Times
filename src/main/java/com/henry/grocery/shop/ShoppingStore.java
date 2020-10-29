@@ -95,7 +95,7 @@ public class ShoppingStore {
     	System.out.println("List of promotions");
         Long[] promotionIdArray = promoCatalog.getPromotions().keySet().toArray(new Long[promoCatalog.getPromotions().size()]);
         for (Long promotionId: promotionIdArray) {
-        	System.out.println("Raavi::"+promoCatalog.getPromotions().get(promotionId));
+        	System.out.println(promoCatalog.getPromotions().get(promotionId));
         	
         }
     }
